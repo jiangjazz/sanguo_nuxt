@@ -2,22 +2,28 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:32 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 15:19:15
+ * @Last Modified time: 2018-10-10 16:03:32
  */
 // 引入数据源
 import gameConfig from '~/static/gameData/config/index'
+// 地图资源
 import mapData from '~/static/gameData/mapData'
+
+// 建筑资源
+import buildings from '~/static/gameData/spriteSheet/buildings'
 
 // 函数名称统计
 const G_SET_STAGEISINIT = 'setStageIsInit'
 // state数据
 export const state = () => ({
-  // 舞台是否已经初始化
+  // {boolean} 舞台是否已经初始化
   stageIsInit: false,
-  // 游戏
+  // {object} 游戏
   gameConfig,
-  // 地图数据
-  mapData
+  // {array} 地图数据
+  mapData,
+  // {array} 建筑资源
+  buildings
 })
 
 // getter

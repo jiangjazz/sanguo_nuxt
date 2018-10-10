@@ -2,11 +2,11 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 14:12:11 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 15:45:18
+ * @Last Modified time: 2018-10-10 16:06:06
  */
 
 // 游戏配置
-module.exports = {
+export default {
   width: 48, // 单个地图宽度
   height: 23, // 单个地图高度
   numOfMapX: 6, // 一行多少个地图

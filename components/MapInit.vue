@@ -1,5 +1,5 @@
 <template>
-  <div>mmp</div>
+  <div>mapInit</div>
 </template>
 
 <script>

@@ -2,12 +2,13 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:36 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 15:27:37
+ * @Last Modified time: 2018-10-10 15:51:34
  */
 <template>
   <div>
     <canvas class="myCanvas" id="myCanvas" width="320" height="640"></canvas>
     <MapInit v-if="stageIsInit"></MapInit>
+    <BuildingInit v-if="stageIsInit"></BuildingInit>
   </div>
 </template>
 
@@ -15,10 +16,12 @@
 import { mapState } from 'vuex'
 
 import MapInit from '@/components/MapInit'
+import BuildingInit from '@/components/BuildingInit'
 
 export default {
   components: {
-    MapInit
+    MapInit,
+    BuildingInit
   },
   computed: {
     ...mapState(['stageIsInit'])

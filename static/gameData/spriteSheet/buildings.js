@@ -1,5 +1,11 @@
-{
-  "0": {
+/*
+ * @Author: Janzen 
+ * @Date: 2018-10-10 15:55:20 
+ * @Last Modified by: Janzen
+ * @Last Modified time: 2018-10-10 16:05:48
+ */
+export default [
+  {
     "type": 0,
     "name": "兵营",
     "x": 48,
@@ -9,7 +15,7 @@
     "offsetX": 8,
     "offsetY": -6
   },
-  "1": {
+  {
     "type": 1,
     "name": "农舍",
     "x": 129,
@@ -19,7 +25,7 @@
     "offsetX": 11,
     "offsetY": -6
   },
-  "2": {
+  {
     "type": 2,
     "name": "矿舍",
     "x": 154,
@@ -29,7 +35,7 @@
     "offsetX": 11,
     "offsetY": -6
   },
-  "3": {
+  {
     "type": 3,
     "name": "鱼塘",
     "x": 0,
@@ -39,7 +45,7 @@
     "offsetX": 0,
     "offsetY": 0
   },
-  "4": {
+  {
     "type": 4,
     "name": "箭塔",
     "x": 48,
@@ -49,7 +55,7 @@
     "offsetX": 11,
     "offsetY": -20
   },
-  "5": {
+  {
     "type": 5,
     "name": "工具坊",
     "x": 73,
@@ -59,7 +65,7 @@
     "offsetX": 0,
     "offsetY": -14
   },
-  "6": {
+  {
     "type": 6,
     "name": "牧舍",
     "x": 116,
@@ -69,7 +75,7 @@
     "offsetX": 9,
     "offsetY": -2
   },
-  "7": {
+  {
     "type": 7,
     "name": "木材厂",
     "x": 145,
@@ -79,7 +85,7 @@
     "offsetX": 6,
     "offsetY": -12
   },
-  "8": {
+  {
     "type": 8,
     "name": "苗圃",
     "x": 0,
@@ -89,7 +95,7 @@
     "offsetX": 4,
     "offsetY": -12
   },
-  "9": {
+  {
     "type": 9,
     "name": "锅炉",
     "x": 115,
@@ -99,4 +105,4 @@
     "offsetX": 8,
     "offsetY": -13
   }
-}
+]

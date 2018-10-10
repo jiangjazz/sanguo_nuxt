@@ -2,9 +2,9 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 14:24:13 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 15:49:59
+ * @Last Modified time: 2018-10-10 16:05:47
  */
-module.exports = [
+export default [
   {
     "id": 0,
     "map": {
