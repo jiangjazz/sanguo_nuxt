@@ -1,8 +1,6 @@
 const pkg = require('./package')
 
 module.exports = {
-  mode: 'spa',
-
   /*
   ** Headers of the page
   */
@@ -15,6 +13,12 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: '/script/createjs/esseljs.js' },
+      { src: '/script/createjs/tweenjs.js' },
+      { src: '/script/createjs/soundjs.js' },
+      { src: '/script/createjs/preloadjs.js' }
     ]
   },
 
