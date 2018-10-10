@@ -1,3 +1,9 @@
+/*
+ * @Author: Janzen 
+ * @Date: 2018-10-10 16:33:09 
+ * @Last Modified by: Janzen
+ * @Last Modified time: 2018-10-10 17:02:29
+ */
 <template>
   <div>mapInit</div>
 </template>
@@ -34,8 +40,7 @@ export default {
       images: ['/images/maps.png']
     })
 
-    for (let item in this.mapData) {
-      let map = this.mapData[item] // 当前土地数据
+    this.mapData.map(map => {
       let row = Math.floor(map.id / numOfMapX) // 行
       let col = map.id % numOfMapX // 列
 
@@ -49,7 +54,9 @@ export default {
       sprite.regY = regY
       // 添加上画布
       stage.addChild(sprite)
-    }
+
+      return
+    })
   }
 }
 </script>

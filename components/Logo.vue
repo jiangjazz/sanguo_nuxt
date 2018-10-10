@@ -1,3 +1,9 @@
+/*
+ * @Author: Janzen 
+ * @Date: 2018-10-10 16:33:13 
+ * @Last Modified by:   Janzen 
+ * @Last Modified time: 2018-10-10 16:33:13 
+ */
 <template>
   <div class="VueToNuxtLogo">
     <div class="Triangle Triangle--two"/>

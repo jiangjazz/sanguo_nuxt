@@ -1,3 +1,9 @@
+/*
+ * @Author: Janzen 
+ * @Date: 2018-10-10 16:33:21 
+ * @Last Modified by: Janzen
+ * @Last Modified time: 2018-10-10 17:03:52
+ */
 <template>
   <div>
     buildingInit
@@ -6,10 +12,17 @@
 
 <script>
 import { mapState } from 'vuex'
+// 建筑资源
+import buildings from '~/static/gameData/spriteSheet/buildings'
 
 export default {
+  data () {
+    return {
+      buildings
+    }
+  },
   computed: {
-    ...mapState(['gameConfig', 'mapData', 'buildings'])
+    ...mapState(['gameConfig', 'mapData'])
   },
   mounted() {
     let { width, height, numOfMapX, numOfMap, startX, startY } = this.gameConfig
@@ -34,8 +47,7 @@ export default {
     })
 
     // 检测当前位置是否存在建筑，有则渲染
-    for (let item in this.mapData) {
-      let map = this.mapData[item] // 当前土地数据
+    this.mapData.map(map => {
       let row = Math.floor(map.id / numOfMapX) // 行
       let col = map.id % numOfMapX // 列
       let building = null // 建筑数据
@@ -53,7 +65,9 @@ export default {
         sprite.regY = regY - building.offsetY
         stage.addChild(sprite)
       }
-    }
+
+      return
+    })
   }
 }
 </script>

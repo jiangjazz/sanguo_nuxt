@@ -2,10 +2,9 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 15:55:20 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 16:05:48
+ * @Last Modified time: 2018-10-10 16:44:53
  */
-export default [
-  {
+export default [{
     "type": 0,
     "name": "兵营",
     "x": 48,

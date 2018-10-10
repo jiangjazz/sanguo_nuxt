@@ -2,13 +2,14 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:36 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 15:51:34
+ * @Last Modified time: 2018-10-10 17:32:25
  */
 <template>
   <div>
     <canvas class="myCanvas" id="myCanvas" width="320" height="640"></canvas>
     <MapInit v-if="stageIsInit"></MapInit>
     <BuildingInit v-if="stageIsInit"></BuildingInit>
+    <RobotInit v-if="stageIsInit"></RobotInit>
   </div>
 </template>
 
@@ -17,11 +18,13 @@ import { mapState } from 'vuex'
 
 import MapInit from '@/components/MapInit'
 import BuildingInit from '@/components/BuildingInit'
+import RobotInit from '@/components/RobotInit'
 
 export default {
   components: {
     MapInit,
-    BuildingInit
+    BuildingInit,
+    RobotInit
   },
   computed: {
     ...mapState(['stageIsInit'])
@@ -33,6 +36,8 @@ export default {
     createjs.Ticker.on('tick', (event) => {
       stage.update(event)
     })
+    // fps
+    createjs.Ticker.framerate = 30
 
     // 发送通知，舞台搭建完成
     this.$store.commit('setStageIsInit', true)
