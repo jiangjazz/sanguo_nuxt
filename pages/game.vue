@@ -2,24 +2,44 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:36 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 14:07:56
+ * @Last Modified time: 2018-10-10 15:27:37
  */
 <template>
   <div>
-    <canvas id="game" width="320" height="640"></canvas>
-    {{test}}
+    <canvas class="myCanvas" id="myCanvas" width="320" height="640"></canvas>
+    <MapInit v-if="stageIsInit"></MapInit>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
+
+import MapInit from '@/components/MapInit'
 
 export default {
-  computed: {
-    ...mapState(['test'])
+  components: {
+    MapInit
   },
-  mounted () {
-    console.log(createjs)
+  computed: {
+    ...mapState(['stageIsInit'])
+  },
+  mounted() {
+    // 绘制画布并绑定至全局
+    window.stage = new createjs.Stage('myCanvas')
+
+    createjs.Ticker.on('tick', (event) => {
+      stage.update(event)
+    })
+
+    // 发送通知，舞台搭建完成
+    this.$store.commit('setStageIsInit', true)
   }
 }
 </script>
+
+<style>
+.myCanvas {
+  border: 1px solid red;
+}
+</style>
+
