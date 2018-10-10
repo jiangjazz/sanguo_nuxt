@@ -1,22 +1,21 @@
 # sanguo_nuxt
 
-> sanguo nuxt createjs
+> 一个深坑里的js游戏开发（别指望我开发完）
+
+## Version Log
+---
+
+### v1.0.0
+```
+new
+- Start project.
+```
+---
+
 
 ## Build Setup
 
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+- npm install
+- npm run dev
+```

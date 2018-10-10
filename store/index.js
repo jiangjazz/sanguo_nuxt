@@ -2,13 +2,12 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:32 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 16:03:32
+ * @Last Modified time: 2018-10-10 16:27:30
  */
 // 引入数据源
 import gameConfig from '~/static/gameData/config/index'
 // 地图资源
 import mapData from '~/static/gameData/mapData'
-
 // 建筑资源
 import buildings from '~/static/gameData/spriteSheet/buildings'
 
