@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:36 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 17:32:25
+ * @Last Modified time: 2018-10-11 11:02:38
  */
 <template>
   <div>
@@ -37,7 +37,7 @@ export default {
       stage.update(event)
     })
     // fps
-    createjs.Ticker.framerate = 30
+    createjs.Ticker.framerate = 20
 
     // 发送通知，舞台搭建完成
     this.$store.commit('setStageIsInit', true)
