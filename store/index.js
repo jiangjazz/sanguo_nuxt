@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 11:41:32 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 17:05:19
+ * @Last Modified time: 2018-10-11 17:43:05
  */
 
 /**
@@ -19,6 +19,7 @@ import robotData from '~/static/gameData/robotData'
  * 函数名称统计
  */
 const G_SET_STAGEISINIT = 'setStageIsInit'
+const G_SET_SINGLEROBOTDATA = 'setSingleRobotData'
 
 /**
  * state数据
@@ -51,9 +52,31 @@ export const getters = {
 export const mutations = {
   /**
    * 初始化舞台（canvas）数据
+   * @param {boolean} status
   */
   [G_SET_STAGEISINIT] (state, status) {
     state.stageIsInit = status
+  },
+  /**
+   * 更新单个机器人数据
+   * @param {object} robot
+  */
+  [G_SET_SINGLEROBOTDATA] (state, robot) {
+    let i = null
+    let array = state.robotData
+    array.some((item, index) => {
+      let status = item.id === robot.id
+      if (status) {
+        i = index
+      }
+      return status
+    })
+    if (i === null) {
+      throw new Error('不存在当前robot数据，请检查')
+    } else {
+      array[i] = robot
+      state.robotData = array.concat([])
+    }
   }
 }
 

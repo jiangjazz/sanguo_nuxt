@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-11 14:24:17 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-11 17:11:41
+ * @Last Modified time: 2018-10-11 18:00:04
  */
 <template>
   <div>
@@ -36,16 +36,27 @@ export default {
      * @param {obj} sprite 建好的机器人动画模型
      */
     action(sprite) {
-      let { width, height, numOfMapX, numOfMap, startX, startY } = this.gameConfig
-      let robot = this.robot
+      let {
+        width,
+        height,
+        numOfMapX,
+        numOfMap,
+        startX,
+        startY
+      } = this.gameConfig
+      // let robot = this.robot
       // 行动处理
-      let targetRow = Math.floor(robot.target / numOfMapX) // 行
-      let targetCol = robot.target % numOfMapX // 列
+      let targetRow = Math.floor(this.robot.target / numOfMapX) // 行
+      let targetCol = this.robot.target % numOfMapX // 列
       // x坐标
-      let targetX =
-        startX + targetRow * (width / 2) + targetCol * (width / 2)
+      let targetX = startX + targetRow * (width / 2) + targetCol * (width / 2)
       // y坐标
       let targetY = startY + targetRow * (height / 2) - targetCol * (height / 2)
+      // 动画的面向
+      let arrow = sprite.x < targetX ? 'right' : 'left'
+      sprite.gotoAndPlay(
+        this.getAnimationName(this.robot.type, this.robot.current_type, arrow)
+      )
 
       // 防止组件重复加载时重复注册事件
       if (sprite.hasEventListener('tick')) {
@@ -53,16 +64,14 @@ export default {
       }
 
       // sprite.gotoAndPlay('farmer_run_right')
-          console.log(11111, startY, sprite.x, sprite.y, targetY)
+      console.log(11111, startY, sprite.x, sprite.y, targetY)
       sprite.on('tick', event => {
+        // console.log(targetX)
         if (sprite.x < targetX) {
           // 水平向右
           sprite.x += (event.delta / 1000) * 16
           if (sprite.x > targetX) {
             sprite.x = targetX
-            // sprite.gotoAndPlay(
-            //   this.getAnimationName(robot.type, robot.current_type, 'right')
-            // )
           }
         } else if (sprite.x > targetX) {
           // 水平向左
@@ -72,14 +81,14 @@ export default {
           }
         } else {
           // 到达x轴目的地， 开始检测y轴目的地
-          if(sprite.y > targetY) {
+          if (sprite.y > targetY) {
             // console.log(9999)
             // 向下
             sprite.y -= (event.delta / 1000) * 16
             if (sprite.y < targetY) {
               sprite.y = targetY
             }
-          } else if(sprite.y < targetY) {
+          } else if (sprite.y < targetY) {
             // console.log(1231)
             // 向上
             sprite.y += (event.delta / 1000) * 16
@@ -89,10 +98,45 @@ export default {
           } else {
             // 抵达目的地
             console.log('抵达目的地')
+            // this.robotData.current_type = 2
+            if (this.robot.current_type !== 2) {
+              console.log(
+                '执行变化',
+                this.robot.type,
+                2,
+                arrow
+              )
+              sprite.gotoAndPlay(
+                this.getAnimationName(
+                  this.robot.type,
+                  2,
+                  arrow
+                )
+              )
+              let { current_type, work_place, target, ...other } = this.robot
+              this.$store.commit('setSingleRobotData', {
+                ...other,
+                work_place,
+                current_type: 2,
+                target
+              })
+              this.timeout = setTimeout(() => {
+
+                this.$store.commit('setSingleRobotData', {
+                  ...other,
+                  current_type: 3,
+                  target: work_place,
+                  position: target,
+                  lastmodify: new Date().getTime()
+                })
+              }, 2000)
+            }
+            // switch(robot.current_type) {
+            //   // case 1:
+            // }
           }
         }
       })
-      
     }
   },
   mounted() {
@@ -109,17 +153,19 @@ export default {
     // 检测是否在野 是则显示动画
     if (robot.belong !== -1) {
       // 暂且不知道状态，先隐藏
-      let sprite = new createjs.Sprite(robotSS, 'farmer_run_right')
+      let sprite = new createjs.Sprite(robotSS, 'hide')
       sprite.x = spriteX
       sprite.y = spriteY
       stage.addChild(sprite)
 
       // 检测是否有工作
       if (robot.current_type !== 0) {
-        // 工作中
-        if(robot.current_type !== 4) {
-          this.action(sprite)
-        }
+        // 在路上
+        // if (robot.current_type == 1 || robot.current_type == 3) {
+        //   this.action(sprite)
+        // } else {
+        //   console.log(1)
+        // }
       }
     }
   }

@@ -2,13 +2,13 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 16:33:03 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-11 16:03:32
+ * @Last Modified time: 2018-10-11 17:56:58
  */
 <template>
   <div>
     robotInit
     <div v-if="isDataInit">
-      <Robot v-for="item in robotData" :robot="item" :getAnimationName="getAnimationName" :key="item.id"></Robot>
+      <Robot v-for="item in robotData" :robot="item" :getAnimationName="getAnimationName" :key="item.lastmodify"></Robot>
     </div>
   </div>
 </template>

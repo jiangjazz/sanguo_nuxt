@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 16:32:57 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-11 16:09:50
+ * @Last Modified time: 2018-10-11 17:17:34
  */
 export default [
   {
@@ -19,7 +19,7 @@ export default [
     // 目标地图的id，如不存在则为null
     "target": 9,
     // 0:没有工作；1:去工作路上；2:工作；3:回建筑；4:休息；
-    "current_type": 2,
+    "current_type": 1,
     // 能力值 0 - 100
     "ability": 90,
     // -1:在野； 0:蜀国；1:魏国；2:吴国；
