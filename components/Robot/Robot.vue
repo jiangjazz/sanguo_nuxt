@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-11 14:24:17 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-11 17:07:24
+ * @Last Modified time: 2018-10-11 17:10:00
  */
 <template>
   <div>
@@ -43,9 +43,9 @@ export default {
       let targetCol = robot.target % numOfMapX // 列
       // x坐标
       let targetX =
-        startX - (width / 2) - targetRow * (width / 2) + targetCol * (width / 2)
+        startX + targetRow * (width / 2) + targetCol * (width / 2)
       // y坐标
-      let targetY = startY - (height /2) - targetRow * (height / 2) + targetCol * (height / 2)
+      let targetY = startY + targetRow * (height / 2) - targetCol * (height / 2)
 
       // 防止组件重复加载时重复注册事件
       if (sprite.hasEventListener('tick')) {
@@ -76,15 +76,15 @@ export default {
             // console.log(9999)
             // 向下
             sprite.y -= (event.delta / 1000) * 16
-            if (sprite.x < targetX) {
-              sprite.x = targetX
+            if (sprite.y < targetY) {
+              sprite.y = targetY
             }
           } else if(sprite.y < targetX) {
             // console.log(1231)
             // 向上
             sprite.y += (event.delta / 1000) * 16
-            if (sprite.x > targetX) {
-              sprite.x = targetX
+            if (sprite.y > targetY) {
+              sprite.y = targetY
             }
           } else {
             // 抵达目的地
@@ -118,7 +118,7 @@ export default {
       if (robot.current_type !== 0) {
         // 工作中
         if(robot.current_type !== 4) {
-          // this.action(sprite)
+          this.action(sprite)
         }
       }
     }
