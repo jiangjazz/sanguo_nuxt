@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-11 14:24:17 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-11 17:10:00
+ * @Last Modified time: 2018-10-11 17:11:41
  */
 <template>
   <div>
@@ -79,7 +79,7 @@ export default {
             if (sprite.y < targetY) {
               sprite.y = targetY
             }
-          } else if(sprite.y < targetX) {
+          } else if(sprite.y < targetY) {
             // console.log(1231)
             // 向上
             sprite.y += (event.delta / 1000) * 16
