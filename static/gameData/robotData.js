@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 16:32:57 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-11 15:38:14
+ * @Last Modified time: 2018-10-11 16:09:50
  */
 export default [
   {
@@ -28,7 +28,6 @@ export default [
       "type": null,
       "count": 0
     },
-    "isHide": false,
     // 时间，用于更新数据
     "lastmodify": "time_nil"
   }

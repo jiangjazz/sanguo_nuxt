@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 16:33:09 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 17:02:29
+ * @Last Modified time: 2018-10-11 17:04:35
  */
 <template>
   <div>mapInit</div>
@@ -40,18 +40,18 @@ export default {
       images: ['/images/maps.png']
     })
 
-    this.mapData.map(map => {
+    this.mapData.map((map, index) => {
       let row = Math.floor(map.id / numOfMapX) // 行
       let col = map.id % numOfMapX // 列
 
       // x坐标
-      let regX = startX - row * (width / 2) - col * (width / 2)
+      let mapX = startX + row * (width / 2) + col * (width / 2)
       // y坐标
-      let regY = startY - row * (height / 2) + col * (height / 2)
+      let mapY = startY + row * (height / 2) - col * (height / 2)
 
       let sprite = new createjs.Sprite(ss, 'map' + map.map.type)
-      sprite.regX = regX
-      sprite.regY = regY
+      sprite.x = mapX
+      sprite.y = mapY
       // 添加上画布
       stage.addChild(sprite)
 

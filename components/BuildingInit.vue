@@ -2,7 +2,7 @@
  * @Author: Janzen 
  * @Date: 2018-10-10 16:33:21 
  * @Last Modified by: Janzen
- * @Last Modified time: 2018-10-10 17:03:52
+ * @Last Modified time: 2018-10-11 17:05:46
  */
 <template>
   <div>
@@ -53,16 +53,16 @@ export default {
       let building = null // 建筑数据
 
       // x坐标
-      let regX = startX - row * (width / 2) - col * (width / 2)
+      let mapX = startX + row * (width / 2) + col * (width / 2)
       // y坐标
-      let regY = startY - row * (height / 2) + col * (height / 2)
+      let mapY = startY + row * (height / 2) - col * (height / 2)
 
       // 建筑渲染
       if (map.building.type !== null && this.buildings[map.building.type]) {
         building = this.buildings[map.building.type]
         let sprite = new createjs.Sprite(ss, 'building' + map.building.type)
-        sprite.regX = regX - building.offsetX
-        sprite.regY = regY - building.offsetY
+        sprite.x = mapX + building.offsetX
+        sprite.y = mapY + building.offsetY
         stage.addChild(sprite)
       }
 
